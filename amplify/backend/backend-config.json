@@ -3,6 +3,10 @@
 		"caltrack": {
 			"service": "DynamoDB",
 			"providerPlugin": "awscloudformation"
+		},
+		"dynamo36e85f65": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
 		}
 	},
 	"function": {
@@ -18,6 +22,25 @@
 						"Name",
 						"Arn"
 					]
+				}
+			]
+		},
+		"caltrack078ccd3f": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "dynamo36e85f65",
+					"attributes": [
+						"Name",
+						"Arn"
+					],
+					"attributeEnvMap": {
+						"Name": "TABLE_NAME",
+						"Arn": "TABLE_ARN"
+					}
 				}
 			]
 		}
@@ -36,6 +59,20 @@
 				{
 					"category": "function",
 					"resourceName": "caltrack",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		},
+		"api7c920d24": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "caltrack078ccd3f",
 					"attributes": [
 						"Name",
 						"Arn"

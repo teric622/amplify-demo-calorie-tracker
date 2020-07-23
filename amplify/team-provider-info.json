@@ -15,5 +15,26 @@
                 "cognito05140d8e": {}
             }
         }
+    },
+    "caldemo": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-caltrack-caldemo-190417-authRole",
+            "UnauthRoleArn": "arn:aws:iam::348048855092:role/amplify-caltrack-caldemo-190417-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::348048855092:role/amplify-caltrack-caldemo-190417-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-caltrack-caldemo-190417-deployment",
+            "UnauthRoleName": "amplify-caltrack-caldemo-190417-unauthRole",
+            "StackName": "amplify-caltrack-caldemo-190417",
+            "StackId": "arn:aws:cloudformation:us-east-1:348048855092:stack/amplify-caltrack-caldemo-190417/50e02470-cd17-11ea-8676-0a637f9cba95",
+            "AmplifyAppId": "d1j10mey9u30z5"
+        },
+        "categories": {
+            "auth": {
+                "cognito05140d8e": {}
+            },
+            "function": {
+                "caltrack": {}
+            }
+        }
     }
 }

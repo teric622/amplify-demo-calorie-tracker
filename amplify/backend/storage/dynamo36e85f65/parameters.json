@@ -1,0 +1,7 @@
+{
+    "tableName": "user_id",
+    "partitionKeyName": "user_id",
+    "partitionKeyType": "S",
+    "sortKeyName": "created_at",
+    "sortKeyType": "N"
+}

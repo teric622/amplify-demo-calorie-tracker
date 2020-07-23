@@ -3,6 +3,9 @@ import Amplify, { Auth, API } from "aws-amplify";
 import awsmobile from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react";
 
+
+
+
 Amplify.configure(awsmobile);
 
 class App extends Component {

@@ -1,17 +1,22 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "Lambda resource stack creation using Amplify CLI",
+	"Description": "Lambda Function resource stack creation using Amplify CLI",
 	"Parameters": {
+		"CloudWatchRule": {
+			"Type": "String",
+			"Default": "NONE",
+			"Description": " Schedule Expression"
+		},
 		"env": {
 			"Type": "String"
 		},
-		"storagecaltrackName": {
+		"storagedynamo36e85f65Name": {
 			"Type": "String",
-			"Default": "storagecaltrackName"
+			"Default": "storagedynamo36e85f65Name"
 		},
-		"storagecaltrackArn": {
+		"storagedynamo36e85f65Arn": {
 			"Type": "String",
-			"Default": "storagecaltrackArn"
+			"Default": "storagedynamo36e85f65Arn"
 		}
 	},
 	"Conditions": {
@@ -36,12 +41,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"caltrack",
+						"caltrack078ccd3f",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"caltrack",
+									"caltrack078ccd3f",
 									"-",
 									{
 										"Ref": "env"
@@ -67,11 +72,12 @@
 						"Arn"
 					]
 				},
-				"Runtime": "nodejs10.x",
+				"Runtime": "nodejs12.x",
+				"Layers": [],
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-caltrack-caldemo-190417-deployment",
-					"S3Key": "amplify-builds/caltrack-6d355141526b656d396e-build.zip"
+					"S3Key": "amplify-builds/caltrack078ccd3f-535833566449396c7a4f-build.zip"
 				}
 			}
 		},
@@ -81,12 +87,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"caltrackLambdaRoleceadb52d",
+						"caltrackLambdaRole07d1a000",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"caltrackLambdaRoleceadb52d",
+									"caltrackLambdaRole07d1a000",
 									"-",
 									{
 										"Ref": "env"
@@ -156,6 +162,7 @@
 						{
 							"Effect": "Allow",
 							"Action": [
+								"dynamodb:DescribeTable",
 								"dynamodb:GetItem",
 								"dynamodb:Query",
 								"dynamodb:Scan",
@@ -165,14 +172,14 @@
 							],
 							"Resource": [
 								{
-									"Ref": "storagecaltrackArn"
+									"Ref": "storagedynamo36e85f65Arn"
 								},
 								{
 									"Fn::Join": [
 										"/",
 										[
 											{
-												"Ref": "storagecaltrackArn"
+												"Ref": "storagedynamo36e85f65Arn"
 											},
 											"index/*"
 										]

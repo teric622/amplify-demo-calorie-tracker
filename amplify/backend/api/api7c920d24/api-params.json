@@ -1,0 +1,37 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "caltrack078ccd3f",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        }
+    ],
+    "resourceName": "api7c920d24",
+    "apiName": "api7c920d24",
+    "functionArns": [
+        {
+            "lambdaFunction": "caltrack078ccd3f"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-caltrack-caldemo-190417-authRole",
+        "unAuthRoleName": "amplify-caltrack-caldemo-190417-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "caltrack078ccd3f",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
